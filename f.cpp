@@ -29,16 +29,16 @@ string f(string date){
     // Add result to day, incrementing months according to overflow
     day += adjust;
     // Increment month for day overflow
-    if(day > months[month]){     
+    while(day > months[month]){     
         // Adjust for Febuary leap years
         if(month == 2 && !(year % 4) && !(year % 100)) day --;
         day -= months[month];
         month++;
     }
     // Increment year for year overflow
-    if(month == 13){
+    if(month > 12){
         year++;
-        month = 1;
+        month = month - 12;
     }
     // Rebuild date into string
     string syear = to_string(year);
