@@ -34,12 +34,12 @@ string f(string date){
         if(month == 2 && !(year % 4) && !(year % 100)) day --;
         day -= months[month];
         month++;
-    }
-    // Increment year for year overflow
-    if(month > 12){
-        year++;
-        month = month - 12;
-    }
+        // Increment year for year overflow
+        if(month > 12){
+            year++;
+            month = month - 12;
+        }
+    }    
     // Rebuild date into string
     string syear = to_string(year);
     string smonth = to_string(month);
